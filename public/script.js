@@ -44,7 +44,7 @@ userDataOverlay.addEventListener("click", (e) => {
 /////////////
 //Server SIde
 
-const BASE_URL = "switchback.proxy.rlwy.net";
+const BASE_URL = "https://server-test-production-d36a.up.railway.app/";
 
 function buy()
 {
