@@ -42,6 +42,9 @@ userDataOverlay.addEventListener("click", (e) => {
 });
 
 /////////////
+//Server SIde
+
+const BASE_URL = "switchback.proxy.rlwy.net";
 
 function buy()
 {
@@ -52,7 +55,7 @@ function buy()
         
     }
 
-    fetch("/buy", {
+    fetch(`${BASE_URL}/buy`, {
             method: "POST",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(buy)
@@ -77,7 +80,7 @@ function addReferrals(userId)
         referrals: userReferrals
     }
 
-    fetch("/buy/referral", {
+    fetch(`${BASE_URL}/buy/referral`, {
             method: "POST",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(referral)
@@ -89,12 +92,6 @@ function addReferrals(userId)
 }
 
 
-
-
-
-
-
-//Server SIde
 const userContainer = document.getElementById("user-container");
 const userData = document.getElementById("user-data");
 
@@ -102,7 +99,7 @@ getData();
 
 function getData() 
 {
-    fetch("/userdata")
+    fetch(`${BASE_URL}/userdata`)
     .then(res => res.json())
     .then(data => {
         console.log(data);
@@ -136,7 +133,7 @@ function getData()
 
 function getUserReferrals(userId)
 {
-    fetch(`/userdata/referrals/${userId}`)
+    fetch(`${BASE_URL}/userdata/referrals/${userId}`)
     .then(res => res.json())
     .then(data => {
         userData.innerHTML = "";
