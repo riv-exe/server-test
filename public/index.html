@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- FORM -->
+    <div id="form-overlay" class="overlay">
+        <div id="form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter name">
+
+            <label for="package">Package:</label>
+            <input type="text" id="package" name="package" placeholder="Enter package">
+
+            <div id="referral-container">
+                <p>Referrals:</p>
+                <input type="text" name="referrals[]" placeholder="Enter referral name">
+            </div>
+
+            <button id="addPackageBtn">Add Referral</button>
+            <button id="confirmBtn">Confirm</button>
+        </div>
+    </div>
+
+    <div id="user-data-overlay" class="overlay">
+        <div id="user-data">
+            <p><strong>REFERRALS:</strong>:</p>
+        </div>
+    </div>
+
+    <div>
+        <button id="buyBtn">Buy</button>
+    </div>
+
+    <!-- USER DATAS -->
+    <div id="user-container">
+        <div class="user">
+            <img src="/img/no-profile.png" alt="profile img">
+            <div>
+                <p>Paulo Reeve Buta</p>
+                <p>Package: Keyboard</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
