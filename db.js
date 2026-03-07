@@ -1,15 +1,19 @@
-const mysql = require("mysql2");
+require('dotenv').config(); // <- top of server.js
 
+const mysql = require('mysql2');
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "*Pauloaug252007",
-  database: "prototype"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 db.connect(err => {
-  if (err) console.log("DB Error:", err);
-  else console.log("Connected to forum database!");
+  if (err) {
+    console.error("DB Error:", err);
+  } else {
+    console.log("DB connected!");
+  }
 });
 
 module.exports = db;
