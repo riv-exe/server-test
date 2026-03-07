@@ -6,6 +6,10 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.send("Railway backend is alive");
+});
+
 app.get("/userdata", (req, res) => {
     db.query("SELECT * FROM datas", (err, result) => {
         res.json(result)
