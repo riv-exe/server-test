@@ -12,7 +12,13 @@ app.get("/", (req, res) => {
 
 app.get("/userdata", (req, res) => {
     db.query("SELECT * FROM datas", (err, result) => {
-        res.json(result)
+
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+
+        res.json(result);
     });
 });
 
@@ -30,16 +36,25 @@ app.get("/userdata/referrals/:id", (req, res) => {
 });
 
 app.post("/buy", (req, res) => {
-    const {username, package, refererals} = req.body;
+    const {username, package: pkg} = req.body;
 
     const sql = `
         INSERT INTO datas (username, package)
         VALUES (?, ?)
     `;
 
-    db.query(sql, [username, package], (err, result) => {
-        res.json({message: "Successfuly posted", id: result.insertId});
-    })
+    db.query(sql, [username, pkg], (err, result) => {
+
+    if (err) {
+        console.error(err);
+        return res.status(500).json({ error: err.message });
+    }
+
+    res.json({
+        message: "Successfully posted",
+        id: result.insertId
+    });
+});
 })
 
 app.post("/buy/referral", (req, res) => {
