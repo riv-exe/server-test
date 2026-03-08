@@ -44,7 +44,7 @@ userDataOverlay.addEventListener("click", (e) => {
 /////////////
 //Server SIde
 
-const BASE_URL = "https://server-test-production-f41c.up.railway.app/";
+const BASE_URL = "https://server-test-production-f41c.up.railway.app";
 
 function buy()
 {
