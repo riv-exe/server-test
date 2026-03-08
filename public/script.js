@@ -32,6 +32,7 @@ confirmBtn.addEventListener("click", () => {
     {
         buy();
         formOverlay.style.display = "none";
+        getData();
     }
 });
 
